@@ -38,13 +38,14 @@ spring:
             hibernate.hbm2ddl.auto: validate
 
     mail:
-        host: localhost
-        port: 25
-        user:
-        password:
+        host: smtp.gmail.com
+        port: 587
+        user: soprateam22@gmail.com
+        password: llamsopra22
         protocol: smtp
-        tls: false
-        auth: false
+        tls: true
+        auth: true
+        from: soprateam22@gmail.com
 
 metrics:
     jmx.enabled: false
