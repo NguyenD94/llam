@@ -2,21 +2,21 @@
     "llamApp": {
         "course" : {
             "home": {
-                "title": "Courses",
-                "createLabel": "Create a new Course",
-                "createOrEditLabel": "Create or edit a Course"
+                "title": "Kurse",
+                "createLabel": "Einene neuen Kurs erstellen",
+                "createOrEditLabel": "Einen Kurs erstellen oder bearbeiten"
             },
             "delete": {
                 "question": "Are you sure you want to delete Course {{ id }}?"
             },
             "detail": {
-                "title": "Course"
+                "title": "Kurs"
             },
             "name": "Name",
-            "isPublic": "IsPublic",
-            "accessKey": "AccessKey",
-            "user": "user",
-            "role": "role"
+            "isPublic": "Öffentlicher Kurs?",
+            "accessKey": "Zugangsschlüssel",
+            "user": "Benutzer",
+            "role": "Rolle"
         }
     }
 }

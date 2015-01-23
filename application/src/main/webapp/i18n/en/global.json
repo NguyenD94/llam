@@ -21,7 +21,7 @@
                 "configuration": "Configuration",
                 "logs": "Logs",
                 "audits": "Audits",
-                "login": "Authenticate",
+                "login": "Log In",
                 "logout": "Log out",
                 "apidocs": "API",
                 "register": "Register"
@@ -30,14 +30,20 @@
             "language": "Language"
         },
         "form": {
-            "username": "Login",
-            "username.placeholder": "Your login",
+            "username": "Username",
+            "username.placeholder": "Your username",
+            "firstName": "Firstname",
+            "firstName.placeholder": "Your firstname",
+            "lastName": "Lastname",
+            "lastName.placeholder": "Your lastname",
             "newpassword": "New password",
             "newpassword.placeholder": "New password",
             "confirmpassword": "New password confirmation",
             "confirmpassword.placeholder": "Confirm the new password",
             "email": "E-mail",
-            "email.placeholder": "Your e-mail"
+            "email.placeholder": "Your e-mail",
+            "studentNumber": "Studentnumber",
+            "studentNumber.placeholder": "Your Studentnumber"
         },
         "messages": {
             "info": {
@@ -85,5 +91,5 @@
             "title": "Confirm delete operation"
         }
     },
-    "footer": "This is your footer"
+    "footer": "&copy; Sopra Team 22"
 }

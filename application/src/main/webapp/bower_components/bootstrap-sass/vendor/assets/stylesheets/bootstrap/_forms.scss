@@ -165,7 +165,11 @@ textarea.form-control {
 input[type="search"] {
   -webkit-appearance: none;
 }
-
+input[type=number-without-spin]::-webkit-inner-spin-button,
+input[type=number-without-spin]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 // Special styles for iOS date input
 //

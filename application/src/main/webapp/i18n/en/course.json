@@ -13,8 +13,8 @@
                 "title": "Course"
             },
             "name": "Name",
-            "isPublic": "IsPublic",
-            "accessKey": "AccessKey",
+            "isPublic": "Public course?",
+            "accessKey": "Accesskey",
             "user": "user",
             "role": "role"
         }

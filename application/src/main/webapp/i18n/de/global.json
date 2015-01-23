@@ -6,8 +6,8 @@
             "home": "Startseite",
             "entities": {
                 "main": "Entitäten",
-                "course": "Course",
-                "role": "Role",
+                "course": "Kurs",
+                "role": "Rolle",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {
@@ -32,12 +32,18 @@
         "form": {
             "username": "Benutzername",
             "username.placeholder": "Ihr Benutzername",
+            "firstName": "Vorname",
+            "firstName.placeholder": "Ihr Vorname",
+            "lastName": "Nachname",
+            "lastName.placeholder": "Ihr Nachname",
             "newpassword": "Neues Passwort",
             "newpassword.placeholder": "Neues Passwort",
             "confirmpassword": "Neues Passwort bestätigen",
             "confirmpassword.placeholder": "Bestätigen Sie ihr neues Passwort",
             "email": "E-Mail Adresse",
-            "email.placeholder": "Ihre E-Mail Adresse"
+            "email.placeholder": "Ihre E-Mail Adresse",
+            "studentNumber": "Matrikelnummer",
+            "studentNumber.placeholder": "Ihre Matrikelnummer"
         },
         "messages": {
             "info": {
@@ -70,20 +76,20 @@
     },
     "entity": {
         "action": {
-            "back": "Back",
-            "cancel": "Cancel",
-            "delete": "Delete",
-            "edit": "Edit",
-            "save": "Save",
-            "view": "View"
+            "back": "Zurück",
+            "cancel": "Abbrechen",
+            "delete": "Löschen",
+            "edit": "Bearbeiten",
+            "save": "Speichern",
+            "view": "Anschauen"
         },
         "detail": {
-            "field": "Field",
-            "value": "Value"
+            "field": "Feld",
+            "value": "Wert"
         },
         "delete": {
-            "title": "Confirm delete operation"
+            "title": "Löschen bestätigen"
         }
     },
-    "footer": "Dies ist Ihre Fußzeile"
+    "footer": "&copy; Sopra Team 22"
 }

@@ -6,18 +6,30 @@
         },
         "messages": {
             "validate": {
-                "login": {
-                    "required": "Ihr Benutzername wird benötigt.",
-                    "minlength": "Ihr Benutzername muss mindestens 1 Zeichen lang sein",
-                    "maxlength": "Ihr Benutzername darf nicht länger als 50 Zeichen sein",
-                    "pattern": "Ihr Benutzername darf nur Kleinbuchstaben und Ziffern enthalten"
+                "firstName": {
+                    "required": "Ihr Vorname wird benötigt",
+                    "minlength": "Ihr Vorname muss mindestens 1 Zeichen lang sein",
+                    "maxlength": "Ihr Vorname darf maximal 25 Zeichen lang sein",
+                    "pattern": "Ihr Vorname darf nur Buchstaben enthalten"
+                },
+                "lastName": {
+                    "required": "Ihr Nachname wird benötigt",
+                    "minlength": "Ihr Nachname muss mindestens 1 Zeichen lang sein",
+                    "maxlength": "Ihr Nachname darf maximal 25 Zeichen lang sein",
+                    "pattern": "Ihr Nachname darf nur Buchstaben enthalten"
+                },
+                "studentNumber": {
+                    "required": "Ihre Matrikelnummer wird benötigt",
+                    "minlength": "Ihre Matrikelnummer muss mindestens 5 Zeichen lang sein",
+                    "maxlength": "Ihre Matrikelnummer darf nicht länger als 10 Zeichen sein",
+                    "pattern": "Ihre Matrikelnummer darf nur Zahlen enthalten"
                 }
             },
-            "success": "<strong>Registrierung gespeichert!</strong> Bitte überprüfen Sie ihre E-Mails für die Bestätigung.",
+            "success": "<strong>Registrierung erfolgreich!</strong> Ihnen wurde eine Bestätigungsemail an die angegebene Adresse zugesandt.",
             "error": {
-                "fail": "<strong>Registrierung fehlgeschlagen!</strong> Bitte versuchen Sie es später nochmal.",
-                "userexists": "<strong>Benutzername bereits vergeben!</strong> Bitte wählen Sie einen anderen aus.",
-                "emailexists": "<strong>E-mail wird bereits verwendet!</strong> Bitte wählen Sie eine andere aus."
+                "fail": "<strong>Registrierung fehlgeschlagen!</strong> Bitte versuchen Sie es später erneut.",
+                "userexists": "<strong>Login name already registered!</strong> Please choose another one.",
+                "emailexists": "<strong>E-Mail wird bereits verwendet!</strong> Bitte verwenden Sie eine andere."
             }
         }
     }

@@ -2,7 +2,7 @@
     "llamApp": {
         "role" : {
             "home": {
-                "title": "Roles",
+                "title": "Role",
                 "createLabel": "Create a new Role",
                 "createOrEditLabel": "Create or edit a Role"
             },
