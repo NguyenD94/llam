@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="llamApp.course.detail.title">Course</span> {{course.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="llamApp.course.name">Name</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{course.name}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="llamApp.course.isPublic">IsPublic</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{course.isPublic}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="llamApp.course.accessKey">AccessKey</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{course.accessKey}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="course"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

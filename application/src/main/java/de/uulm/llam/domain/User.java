@@ -61,7 +61,18 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "activation_key", length = 20)
     private String activationKey;
 
-    @JsonIgnore
+
+  // --
+    @Column(name="student_number")
+    private int studentNumber;
+
+    @ManyToOne
+    private Role role;
+    // --
+
+
+  @JsonIgnore
+
     @ManyToMany
     @JoinTable(
             name = "T_USER_AUTHORITY",
@@ -139,6 +150,22 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.activationKey = activationKey;
     }
 
+    public int getStudentNumber() {
+      return studentNumber;
+    }
+
+    public void setStudentNumber( int studentNumber ) {
+      this.studentNumber = studentNumber;
+    }
+
+    public Role getRole() {
+      return role;
+    }
+
+    public void setRole( Role role ) {
+      this.role = role;
+    }
+
     public String getLangKey() {
         return langKey;
     }
@@ -197,6 +224,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
                 ", activated='" + activated + '\'' +
                 ", langKey='" + langKey + '\'' +
                 ", activationKey='" + activationKey + '\'' +
-                "}";
+                ", studentNumber='" + studentNumber + '\'' +
+            "}";
     }
 }

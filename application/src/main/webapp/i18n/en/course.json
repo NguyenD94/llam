@@ -1,0 +1,22 @@
+{
+    "llamApp": {
+        "course" : {
+            "home": {
+                "title": "Courses",
+                "createLabel": "Create a new Course",
+                "createOrEditLabel": "Create or edit a Course"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Course {{ id }}?"
+            },
+            "detail": {
+                "title": "Course"
+            },
+            "name": "Name",
+            "isPublic": "IsPublic",
+            "accessKey": "AccessKey",
+            "user": "user",
+            "role": "role"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "llamApp": {
+        "role" : {
+            "home": {
+                "title": "Roles",
+                "createLabel": "Create a new Role",
+                "createOrEditLabel": "Create or edit a Role"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Role {{ id }}?"
+            },
+            "detail": {
+                "title": "Role"
+            },
+            "name": "Name",
+            "canCreate": "CanCreate",
+            "canDiscuss": "CanDiscuss",
+            "canRate": "CanRate",
+            "canDelete": "CanDelete",
+            "canGrantAccess": "CanGrantAccess",
+            "canEdit": "CanEdit",
+            "canAdministrate": "CanAdministrate",
+            "course": "course",
+            "user": "user"
+        }
+    }
+}

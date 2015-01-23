@@ -1,0 +1,83 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "otherEntityName": "course",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "Course",
+            "otherEntityField": "id"
+        },
+        {
+          "relationshipId": 2,
+          "otherEntityName": "user",
+          "relationshipType": "one-to-many",
+          "otherEntityNameCapitalized": "User",
+          "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Name",
+            "fieldNameUnderscored": "name"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "canCreate",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "CanCreate",
+            "fieldNameUnderscored": "can_create"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "canDiscuss",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "CanDiscuss",
+            "fieldNameUnderscored": "can_discuss"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "canRate",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "CanRate",
+            "fieldNameUnderscored": "can_rate"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "canDelete",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "CanDelete",
+            "fieldNameUnderscored": "can_delete"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "canGrantAccess",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "CanGrantAccess",
+            "fieldNameUnderscored": "can_grant_access"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "canEdit",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "CanEdit",
+            "fieldNameUnderscored": "can_edit"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "canAdministrate",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "CanAdministrate",
+            "fieldNameUnderscored": "can_administrate"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150123104558"
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <!--
+        Added the entity Role.
+    -->
+    <changeSet id="20150123104558" author="jhipster">
+        <createTable tableName="T_ROLE">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="can_create" type="bit"/>
+            <column name="can_discuss" type="bit"/>
+            <column name="can_rate" type="bit"/>
+            <column name="can_delete" type="bit"/>
+            <column name="can_grant_access" type="bit"/>
+            <column name="can_edit" type="bit"/>
+            <column name="can_administrate" type="bit"/>
+            <column name="course_id" type="bigint"/>
+        </createTable>
+        
+        <addForeignKeyConstraint baseColumnNames="course_id"
+                                 baseTableName="T_ROLE"
+                                 constraintName="fk_role_course_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="T_COURSE"/>
+
+    </changeSet>
+</databaseChangeLog>

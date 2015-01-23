@@ -1,0 +1,94 @@
+
+<div>
+    <h2><span translate="llamApp.role.detail.title">Role</span> {{role.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="llamApp.role.name">Name</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{role.name}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="llamApp.role.canCreate">CanCreate</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{role.canCreate}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="llamApp.role.canDiscuss">CanDiscuss</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{role.canDiscuss}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="llamApp.role.canRate">CanRate</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{role.canRate}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="llamApp.role.canDelete">CanDelete</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{role.canDelete}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="llamApp.role.canGrantAccess">CanGrantAccess</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{role.canGrantAccess}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="llamApp.role.canEdit">CanEdit</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{role.canEdit}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="llamApp.role.canAdministrate">CanAdministrate</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{role.canAdministrate}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="llamApp.role.course">course</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{role.course.id}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="role"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

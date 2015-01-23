@@ -1,0 +1,164 @@
+<div>
+
+    <h2 translate="llamApp.role.home.title">Role</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveRoleModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="llamApp.role.home.createLabel">Create a new Role</span>
+    </button>
+    <div class="modal fade" id="saveRoleModal" tabindex="-1" role="dialog" aria-labelledby="myRoleLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myRoleLabel" translate="llamApp.role.home.createOrEditLabel">Create or edit a Role</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="role.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="llamApp.role.name">Name</label>
+                            <input type="text" class="form-control"
+                                   ng-model="role.name">
+                        </div>
+                        <div class="form-group">
+                            <label translate="llamApp.role.canCreate">CanCreate</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="role.canCreate">
+                        </div>
+                        <div class="form-group">
+                            <label translate="llamApp.role.canDiscuss">CanDiscuss</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="role.canDiscuss">
+                        </div>
+                        <div class="form-group">
+                            <label translate="llamApp.role.canRate">CanRate</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="role.canRate">
+                        </div>
+                        <div class="form-group">
+                            <label translate="llamApp.role.canDelete">CanDelete</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="role.canDelete">
+                        </div>
+                        <div class="form-group">
+                            <label translate="llamApp.role.canGrantAccess">CanGrantAccess</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="role.canGrantAccess">
+                        </div>
+                        <div class="form-group">
+                            <label translate="llamApp.role.canEdit">CanEdit</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="role.canEdit">
+                        </div>
+                        <div class="form-group">
+                            <label translate="llamApp.role.canAdministrate">CanAdministrate</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="role.canAdministrate">
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="llamApp.role.course">course</label>
+                            <select class="form-control" ng-model="role.course.id" ng-options="course.id as course.id for course in courses">
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteRoleConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="confirmDelete(role.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="llamApp.role.delete.question" translate-values="{id: '{{role.id}}'}">Are you sure you want to delete Role {{role.id}}?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="llamApp.role.name">Name</th>
+                    <th translate="llamApp.role.canCreate">CanCreate</th>
+                    <th translate="llamApp.role.canDiscuss">CanDiscuss</th>
+                    <th translate="llamApp.role.canRate">CanRate</th>
+                    <th translate="llamApp.role.canDelete">CanDelete</th>
+                    <th translate="llamApp.role.canGrantAccess">CanGrantAccess</th>
+                    <th translate="llamApp.role.canEdit">CanEdit</th>
+                    <th translate="llamApp.role.canAdministrate">CanAdministrate</th>
+                    <th translate="llamApp.role.course">course</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="role in roles">
+                    <td><a ui-sref="roleDetails({id:role.id})">{{role.id}}</a></td>
+                    <td>{{role.name}}</td>
+                    <td>{{role.canCreate}}</td>
+                    <td>{{role.canDiscuss}}</td>
+                    <td>{{role.canRate}}</td>
+                    <td>{{role.canDelete}}</td>
+                    <td>{{role.canGrantAccess}}</td>
+                    <td>{{role.canEdit}}</td>
+                    <td>{{role.canAdministrate}}</td>
+                    <td>{{role.course.id}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="roleDetail({id:role.id})"
+                                class="btn btn-info">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="update(role.id)"
+                                class="btn btn-primary">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(role.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
