@@ -6,10 +6,11 @@
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema2.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20150123104130_added_entity_Course.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20150123104558_added_entity_Role.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150123104558_added_entity_Role2.xml" relativeToChangelogFile="false"/>
+    <!--<include file="classpath:config/liquibase/changelog/20150124120124_added_entity_User.xml" relativeToChangelogFile="false"/>-->
     <!-- JHipster will add liquibase changelogs here -->
 
 
     <!-- Manual Changes -->
-    <include file="classpath:config/liquibase/changelog/20150123140430_alter_entity_User2.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150123140430_alter_entity_User3.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

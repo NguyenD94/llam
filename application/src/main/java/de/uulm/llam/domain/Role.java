@@ -48,8 +48,7 @@ public class Role implements Serializable {
     @ManyToOne
     private Course course;
 
-    @OneToMany(mappedBy = "role")
-    @JsonIgnore
+    @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<User> users = new HashSet<>();
 

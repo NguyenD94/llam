@@ -1,11 +1,11 @@
 <div>
 
-    <h2 translate="llamApp.role.home.title">Role</h2>
+    <h2 translate="llamApp.user.home.title">User</h2>
 
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveRoleModal" ng-click="clear()">
-        <span class="glyphicon glyphicon-flash"></span> <span translate="llamApp.role.home.createLabel">Create a new Role</span>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveUserModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="llamApp.user.home.createLabel">Create a new User</span>
     </button>
-    <div class="modal fade" id="saveRoleModal" tabindex="-1" role="dialog" aria-labelledby="myRoleLabel"
+    <div class="modal fade" id="saveUserModal" tabindex="-1" role="dialog" aria-labelledby="myUserLabel"
          aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -16,66 +16,61 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
-                        <h4 class="modal-title" id="myRoleLabel" translate="llamApp.role.home.createOrEditLabel">Create or edit a Role</h4>
+                        <h4 class="modal-title" id="myUserLabel" translate="llamApp.user.home.createOrEditLabel">Create or edit a User</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
                             <label>ID</label>
                             <input type="text" class="form-control" name="id"
-                                   ng-model="role.id" readonly>
+                                   ng-model="user.id" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label translate="llamApp.role.name">Name</label>
+                            <label translate="llamApp.user.login">Login</label>
                             <input type="text" class="form-control"
-                                   ng-model="role.name">
+                                   ng-model="user.login">
                         </div>
                         <div class="form-group">
-                            <label translate="llamApp.role.canCreate">CanCreate</label>
-                            <input type="checkbox" class="form-control"
-                                   ng-model="role.canCreate">
+                            <label translate="llamApp.user.password">Password</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.password">
                         </div>
                         <div class="form-group">
-                            <label translate="llamApp.role.canDiscuss">CanDiscuss</label>
-                            <input type="checkbox" class="form-control"
-                                   ng-model="role.canDiscuss">
+                            <label translate="llamApp.user.firstName">FirstName</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.firstName">
                         </div>
                         <div class="form-group">
-                            <label translate="llamApp.role.canRate">CanRate</label>
-                            <input type="checkbox" class="form-control"
-                                   ng-model="role.canRate">
+                            <label translate="llamApp.user.lastName">LastName</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.lastName">
                         </div>
                         <div class="form-group">
-                            <label translate="llamApp.role.canDelete">CanDelete</label>
-                            <input type="checkbox" class="form-control"
-                                   ng-model="role.canDelete">
+                            <label translate="llamApp.user.email">Email</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.email">
                         </div>
                         <div class="form-group">
-                            <label translate="llamApp.role.canGrantAccess">CanGrantAccess</label>
+                            <label translate="llamApp.user.activated">Activated</label>
                             <input type="checkbox" class="form-control"
-                                   ng-model="role.canGrantAccess">
+                                   ng-model="user.activated">
                         </div>
                         <div class="form-group">
-                            <label translate="llamApp.role.canEdit">CanEdit</label>
-                            <input type="checkbox" class="form-control"
-                                   ng-model="role.canEdit">
+                            <label translate="llamApp.user.langKey">LangKey</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.langKey">
                         </div>
                         <div class="form-group">
-                            <label translate="llamApp.role.canAdministrate">CanAdministrate</label>
-                            <input type="checkbox" class="form-control"
-                                   ng-model="role.canAdministrate">
+                            <label translate="llamApp.user.activationKey">ActivationKey</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.activationKey">
+                        </div>
+                        <div class="form-group">
+                            <label translate="llamApp.user.studentNumber">StudentNumber</label>
+                            <input type="number" class="form-control"
+                                   ng-model="user.studentNumber">
                         </div>
 
-                        <div class="form-group">
-                            <label translate="llamApp.role.course">course</label>
-                            <select class="form-control" ng-model="role.course.id" ng-options="course.id as course.id for course in courses">
-                            </select>
-                        </div>
-                         <div class="form-group">
-                             <label translate="llamApp.role.user">user</label>
-                             <select class="form-control" multiple ng-model="role.users" ng-options="user as user.id for user in users track by user.id">
-                             </select>
-                         </div>
 
                     </div>
                     <div class="modal-footer">
@@ -91,17 +86,17 @@
         </div>
     </div>
 
-    <div class="modal fade" id="deleteRoleConfirmation">
+    <div class="modal fade" id="deleteUserConfirmation">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form name="form" ng-submit="confirmDelete(role.id)">
+                <form name="form" ng-submit="confirmDelete(user.id)">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
                         <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
                     </div>
                     <div class="modal-body">
-                        <p translate="llamApp.role.delete.question" translate-values="{id: '{{role.id}}'}">Are you sure you want to delete Role {{role.id}}?</p>
+                        <p translate="llamApp.user.delete.question" translate-values="{id: '{{user.id}}'}">Are you sure you want to delete User {{user.id}}?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
@@ -121,43 +116,43 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th translate="llamApp.role.name">Name</th>
-                    <th translate="llamApp.role.canCreate">CanCreate</th>
-                    <th translate="llamApp.role.canDiscuss">CanDiscuss</th>
-                    <th translate="llamApp.role.canRate">CanRate</th>
-                    <th translate="llamApp.role.canDelete">CanDelete</th>
-                    <th translate="llamApp.role.canGrantAccess">CanGrantAccess</th>
-                    <th translate="llamApp.role.canEdit">CanEdit</th>
-                    <th translate="llamApp.role.canAdministrate">CanAdministrate</th>
-                    <th translate="llamApp.role.user">course</th>
+                    <th translate="llamApp.user.login">Login</th>
+                    <th translate="llamApp.user.password">Password</th>
+                    <th translate="llamApp.user.firstName">FirstName</th>
+                    <th translate="llamApp.user.lastName">LastName</th>
+                    <th translate="llamApp.user.email">Email</th>
+                    <th translate="llamApp.user.activated">Activated</th>
+                    <th translate="llamApp.user.langKey">LangKey</th>
+                    <th translate="llamApp.user.activationKey">ActivationKey</th>
+                    <th translate="llamApp.user.studentNumber">StudentNumber</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="role in roles">
-                    <td><a ui-sref="roleDetails({id:role.id})">{{role.id}}</a></td>
-                    <td>{{role.name}}</td>
-                    <td>{{role.canCreate}}</td>
-                    <td>{{role.canDiscuss}}</td>
-                    <td>{{role.canRate}}</td>
-                    <td>{{role.canDelete}}</td>
-                    <td>{{role.canGrantAccess}}</td>
-                    <td>{{role.canEdit}}</td>
-                    <td>{{role.canAdministrate}}</td>
-                    <td>{{role.course.id}}</td>
+                <tr ng-repeat="user in users">
+                    <td><a ui-sref="userDetails({id:user.id})">{{user.id}}</a></td>
+                    <td>{{user.login}}</td>
+                    <td>{{user.password}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.activated}}</td>
+                    <td>{{user.langKey}}</td>
+                    <td>{{user.activationKey}}</td>
+                    <td>{{user.studentNumber}}</td>
                     <td>
                         <button type="submit"
-                                ui-sref="roleDetail({id:role.id})"
+                                ui-sref="userDetail({id:user.id})"
                                 class="btn btn-info">
                             <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
                         </button>
                         <button type="submit"
-                                ng-click="update(role.id)"
+                                ng-click="update(user.id)"
                                 class="btn btn-primary">
                             <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
                         </button>
                         <button type="submit"
-                                ng-click="delete(role.id)"
+                                ng-click="delete(user.id)"
                                 class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
                         </button>

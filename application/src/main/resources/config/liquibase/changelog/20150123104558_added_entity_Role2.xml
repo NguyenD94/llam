@@ -10,7 +10,7 @@
     <!--
         Added the entity Role.
     -->
-    <changeSet id="20150123104558" author="jhipster">
+    <changeSet id="20150123104559" author="jhipster">
         <createTable tableName="T_ROLE">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -32,5 +32,28 @@
                                  referencedColumnNames="id"
                                  referencedTableName="T_COURSE"/>
 
+        <createTable tableName="T_ROLE_T_USER">
+            <column name="users_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Roles_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="Roles_id, users_id" tableName="T_ROLE_T_USER"/>
+
+        <addForeignKeyConstraint baseColumnNames="users_id"
+                                 baseTableName="T_ROLE_T_USER"
+                                 constraintName="fk_role_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="T_USER"/>
+
+        <addForeignKeyConstraint baseColumnNames="Roles_id"
+                                 baseTableName="T_ROLE_T_USER"
+                                 constraintName="fk_user_role_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="T_ROLE"/>
+        
     </changeSet>
 </databaseChangeLog>

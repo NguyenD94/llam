@@ -21,74 +21,72 @@ import java.util.Set;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class User extends AbstractAuditingEntity implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
-    @NotNull
-    @Pattern(regexp = "^[a-z0-9]*$")
-    @Size(min = 1, max = 50)
-    @Column(length = 50, unique = true, nullable = false)
-    private String login;
+  @NotNull
+  @Pattern(regexp = "^[a-z0-9]*$")
+  @Size(min = 1, max = 50)
+  @Column(length = 50, unique = true, nullable = false)
+  private String login;
 
+  @JsonIgnore
+  @NotNull
+  @Size(min = 6, max = 100)
+  @Column(length = 100)
+  private String password;
+
+  @Size(max = 50)
+  @Column(name = "first_name", length = 50)
+  private String firstName;
+
+  @Size(max = 50)
+  @Column(name = "last_name", length = 50)
+  private String lastName;
+
+  @Email
+  @Size(max = 100)
+  @Column(length = 100, unique = true)
+  private String email;
+
+  @Column(nullable = false)
+  private boolean activated = false;
+
+  @Size(min = 2, max = 5)
+  @Column(name = "lang_key", length = 5)
+  private String langKey;
+
+  @Size(max = 20)
+  @Column(name = "activation_key", length = 20)
+  private String activationKey;
+
+    @Column(name = "student_number")
+    private Integer studentNumber;
+
+    @ManyToMany(mappedBy = "users")
     @JsonIgnore
-    @NotNull
-    @Size(min = 6, max = 100)
-    @Column(length = 100)
-    private String password;
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Course> courses = new HashSet<>();
 
-    @Size(max = 50)
-    @Column(name = "first_name", length = 50)
-    private String firstName;
-
-    @Size(max = 50)
-    @Column(name = "last_name", length = 50)
-    private String lastName;
-
-    @Email
-    @Size(max = 100)
-    @Column(length = 100, unique = true)
-    private String email;
-
-    @Column(nullable = false)
-    private boolean activated = false;
-
-    @Size(min = 2, max = 5)
-    @Column(name = "lang_key", length = 5)
-    private String langKey;
-
-    @Size(max = 20)
-    @Column(name = "activation_key", length = 20)
-    private String activationKey;
-
-
-  // --
-    @Column(name="student_number", unique = true, nullable = false)
-    @Size(min=100000)
-    private int studentNumber;
-
-    @ManyToOne
-    private Role role;
-
-    @ManyToMany
-      private Set<Course> courses = new HashSet<>();
-    // --
-
+    @ManyToMany(mappedBy = "users")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Role> roles = new HashSet<>();
 
   @JsonIgnore
 
-    @ManyToMany
-    @JoinTable(
-            name = "T_USER_AUTHORITY",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Authority> authorities = new HashSet<>();
+  @ManyToMany
+  @JoinTable(
+      name = "T_USER_AUTHORITY",
+      joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+      inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
+  @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+  private Set<Authority> authorities = new HashSet<>();
 
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<PersistentToken> persistentTokens = new HashSet<>();
+  @JsonIgnore
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
+  @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+  private Set<PersistentToken> persistentTokens = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -138,44 +136,12 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.email = email;
     }
 
-    public boolean getActivated() {
+    public Boolean getActivated() {
         return activated;
     }
 
-    public void setActivated(boolean activated) {
+    public void setActivated(Boolean activated) {
         this.activated = activated;
-    }
-
-    public String getActivationKey() {
-        return activationKey;
-    }
-
-    public void setActivationKey(String activationKey) {
-        this.activationKey = activationKey;
-    }
-
-    public int getStudentNumber() {
-      return studentNumber;
-    }
-
-    public void setStudentNumber( int studentNumber ) {
-      this.studentNumber = studentNumber;
-    }
-
-    public Role getRole() {
-      return role;
-    }
-
-    public void setRole( Role role ) {
-      this.role = role;
-    }
-
-    public Set< Course > getCourses() {
-      return courses;
-    }
-
-    public void setCourses( Set< Course > courses ) {
-      this.courses = courses;
     }
 
     public String getLangKey() {
@@ -186,57 +152,90 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.langKey = langKey;
     }
 
-    public Set<Authority> getAuthorities() {
-        return authorities;
+    public String getActivationKey() {
+        return activationKey;
     }
 
-    public void setAuthorities(Set<Authority> authorities) {
-        this.authorities = authorities;
+    public void setActivationKey(String activationKey) {
+        this.activationKey = activationKey;
     }
 
-    public Set<PersistentToken> getPersistentTokens() {
-        return persistentTokens;
+    public Integer getStudentNumber() {
+        return studentNumber;
     }
 
-    public void setPersistentTokens(Set<PersistentToken> persistentTokens) {
-        this.persistentTokens = persistentTokens;
+    public void setStudentNumber(Integer studentNumber) {
+        this.studentNumber = studentNumber;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        User user = (User) o;
-
-        if (!login.equals(user.login)) {
-            return false;
-        }
-
-        return true;
+    public Set<Course> getCourses() {
+        return courses;
     }
 
-    @Override
-    public int hashCode() {
-        return login.hashCode();
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
     }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+  public Set<Authority> getAuthorities() {
+    return authorities;
+  }
+
+  public void setAuthorities(Set<Authority> authorities) {
+    this.authorities = authorities;
+  }
+
+  public Set<PersistentToken> getPersistentTokens() {
+    return persistentTokens;
+  }
+
+  public void setPersistentTokens(Set<PersistentToken> persistentTokens) {
+    this.persistentTokens = persistentTokens;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+
+    User user = (User) o;
+
+    if (!login.equals(user.login)) {
+      return false;
+    }
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    return login.hashCode();
+  }
 
     @Override
     public String toString() {
         return "User{" +
-                "login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", activated='" + activated + '\'' +
-                ", langKey='" + langKey + '\'' +
-                ", activationKey='" + activationKey + '\'' +
-                ", studentNumber='" + studentNumber + '\'' +
-            "}";
+                "id=" + id +
+                ", login='" + login + "'" +
+                ", password='" + password + "'" +
+                ", firstName='" + firstName + "'" +
+                ", lastName='" + lastName + "'" +
+                ", email='" + email + "'" +
+                ", activated='" + activated + "'" +
+                ", langKey='" + langKey + "'" +
+                ", activationKey='" + activationKey + "'" +
+                ", studentNumber='" + studentNumber + "'" +
+                '}';
     }
 }

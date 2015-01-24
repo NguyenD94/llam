@@ -10,9 +10,10 @@
         {
           "relationshipId": 2,
           "otherEntityName": "user",
-          "relationshipType": "one-to-many",
+          "relationshipType": "many-to-many",
           "otherEntityNameCapitalized": "User",
-          "otherEntityField": "id"
+          "otherEntityField": "id",
+          "ownerSide": true
         }
     ],
     "fields": [

@@ -8,6 +8,7 @@
                 "main": "Entities",
                 "course": "Course",
                 "role": "Role",
+                "user": "User",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {

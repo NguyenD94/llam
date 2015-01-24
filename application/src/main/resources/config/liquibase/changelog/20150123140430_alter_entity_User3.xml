@@ -8,21 +8,12 @@
   <property name="now" value="current_timestamp" dbms="postgresql"/>
 
 
-  <changeSet id="20150123140431" author="jhipster">
+  <changeSet id="20150123140432" author="jhipster">
     <!-- Student Number -->
     <addColumn tableName="T_USER">
       <column name="student_number" type="integer"/>
     </addColumn>
-    <!-- Role ID for Foreign Key -->
-    <addColumn tableName="T_USER">
-      <column name="role_id" type="bigint"/>
-    </addColumn>
-    <!-- Foreign Key "role_id" for User:n-1:Role Relation -->
-    <addForeignKeyConstraint baseColumnNames="role_id"
-                             baseTableName="T_USER"
-                             constraintName="fk_user_role_id"
-                             referencedColumnNames="id"
-                             referencedTableName="T_ROLE"/>
+
     <!-- LOAD DATA -->
     <loadData encoding="UTF-8"
               file="config/liquibase/users.csv"

@@ -1,0 +1,28 @@
+{
+    "llamApp": {
+        "user" : {
+            "home": {
+                "title": "Users",
+                "createLabel": "Create a new User",
+                "createOrEditLabel": "Create or edit a User"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete User {{ id }}?"
+            },
+            "detail": {
+                "title": "User"
+            },
+            "login": "Login",
+            "password": "Password",
+            "firstName": "FirstName",
+            "lastName": "LastName",
+            "email": "Email",
+            "activated": "Activated",
+            "langKey": "LangKey",
+            "activationKey": "ActivationKey",
+            "studentNumber": "StudentNumber",
+            "course": "course",
+            "role": "role"
+        }
+    }
+}

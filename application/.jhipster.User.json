@@ -1,0 +1,90 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "otherEntityName": "course",
+            "relationshipType": "many-to-many",
+            "otherEntityNameCapitalized": "Course",
+            "ownerSide": false
+        },
+        {
+            "relationshipId": 2,
+            "otherEntityName": "role",
+            "relationshipType": "many-to-many",
+            "otherEntityNameCapitalized": "Role",
+            "ownerSide": false
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "login",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Login",
+            "fieldNameUnderscored": "login"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "password",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Password",
+            "fieldNameUnderscored": "password"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "firstName",
+            "fieldType": "String",
+            "fieldNameCapitalized": "FirstName",
+            "fieldNameUnderscored": "first_name"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "lastName",
+            "fieldType": "String",
+            "fieldNameCapitalized": "LastName",
+            "fieldNameUnderscored": "last_name"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Email",
+            "fieldNameUnderscored": "email"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "activated",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Activated",
+            "fieldNameUnderscored": "activated"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "langKey",
+            "fieldType": "String",
+            "fieldNameCapitalized": "LangKey",
+            "fieldNameUnderscored": "lang_key"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "activationKey",
+            "fieldType": "String",
+            "fieldNameCapitalized": "ActivationKey",
+            "fieldNameUnderscored": "activation_key"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "studentNumber",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "StudentNumber",
+            "fieldNameUnderscored": "student_number"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": true,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150124120124"
+}
