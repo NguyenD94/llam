@@ -63,11 +63,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
 
   // --
-    @Column(name="student_number")
+    @Column(name="student_number", unique = true, nullable = false)
+    @Size(min=100000)
     private int studentNumber;
 
     @ManyToOne
     private Role role;
+
+    @ManyToMany
+      private Set<Course> courses = new HashSet<>();
     // --
 
 
@@ -164,6 +168,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setRole( Role role ) {
       this.role = role;
+    }
+
+    public Set< Course > getCourses() {
+      return courses;
+    }
+
+    public void setCourses( Set< Course > courses ) {
+      this.courses = courses;
     }
 
     public String getLangKey() {

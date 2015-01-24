@@ -7,8 +7,8 @@ spring:
     
     datasource:
         dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
-        url: localhost:5432
-        databaseName: LLAM
+        url: jdbc:postgresql://localhost:5432/
+        databaseName: llam
         serverName: localhost
         username: llam
         password: llam

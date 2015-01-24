@@ -1,0 +1,176 @@
+<div>
+
+    <h2 translate="App.user.home.title">User</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveUserModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="App.user.home.createLabel">Create a new User</span>
+    </button>
+    <div class="modal fade" id="saveUserModal" tabindex="-1" role="dialog" aria-labelledby="myUserLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myUserLabel" translate="App.user.home.createOrEditLabel">Create or edit a User</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="user.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="App.user.login">Login</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.login">
+                        </div>
+                        <div class="form-group">
+                            <label translate="App.user.password">Password</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.password">
+                        </div>
+                        <div class="form-group">
+                            <label translate="App.user.firstName">FirstName</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.firstName">
+                        </div>
+                        <div class="form-group">
+                            <label translate="App.user.lastName">LastName</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.lastName">
+                        </div>
+                        <div class="form-group">
+                            <label translate="App.user.email">Email</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.email">
+                        </div>
+                        <div class="form-group">
+                            <label translate="App.user.activated">Activated</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="user.activated">
+                        </div>
+                        <div class="form-group">
+                            <label translate="App.user.langKey">LangKey</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.langKey">
+                        </div>
+                        <div class="form-group">
+                            <label translate="App.user.activationKey">ActivationKey</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.activationKey">
+                        </div>
+                        <div class="form-group">
+                            <label translate="App.user.studentNumber">StudentNumber</label>
+                            <input type="text" class="form-control"
+                                   ng-model="user.studentNumber">
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="App.user.role">role</label>
+                            <select class="form-control" ng-model="user.role.id" ng-options="role.id as role.id for role in roles">
+                            </select>
+                        </div>
+                         <div class="form-group">
+                             <label translate="App.user.authority">authority</label>
+                             <select class="form-control" multiple ng-model="user.authoritys" ng-options="authority as authority.id for authority in authoritys track by authority.id">
+                             </select>
+                         </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteUserConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="confirmDelete(user.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="App.user.delete.question" translate-values="{id: '{{user.id}}'}">Are you sure you want to delete User {{user.id}}?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="App.user.login">Login</th>
+                    <th translate="App.user.password">Password</th>
+                    <th translate="App.user.firstName">FirstName</th>
+                    <th translate="App.user.lastName">LastName</th>
+                    <th translate="App.user.email">Email</th>
+                    <th translate="App.user.activated">Activated</th>
+                    <th translate="App.user.langKey">LangKey</th>
+                    <th translate="App.user.activationKey">ActivationKey</th>
+                    <th translate="App.user.studentNumber">StudentNumber</th>
+                    <th translate="App.user.authority">role</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <td><a ui-sref="userDetails({id:user.id})">{{user.id}}</a></td>
+                    <td>{{user.login}}</td>
+                    <td>{{user.password}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.activated}}</td>
+                    <td>{{user.langKey}}</td>
+                    <td>{{user.activationKey}}</td>
+                    <td>{{user.studentNumber}}</td>
+                    <td>{{user.role.id}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="userDetail({id:user.id})"
+                                class="btn btn-info">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="update(user.id)"
+                                class="btn btn-primary">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(user.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -30,7 +30,7 @@ public class Course implements Serializable {
     @Column(name = "access_key")
     private String accessKey;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "courses")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<User> users = new HashSet<>();
 
